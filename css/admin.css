@@ -5,7 +5,7 @@
   display: block;
   width: 100%;
 }
-#dashboard_right_now awesomebox-count a:before,
-#dashboard_right_now awesomebox-count span:before {
-  content: "\f331";
+#dashboard_right_now .awesomebox-count a:before,
+#dashboard_right_now .awesomebox-count span:before {
+  content: "\f155";
 }

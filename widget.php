@@ -1,9 +1,9 @@
 <?php
 /**
- * Staff Picks widget.
+ * Awesomebox widget.
  */
 
-class Staff_Picks_Widget extends WP_Widget {
+class Awesomebox_Widget extends WP_Widget {
 
   /**
    * How many items to show in the widget by default.
@@ -12,7 +12,7 @@ class Staff_Picks_Widget extends WP_Widget {
   /**
    * Allow widget to be filtered by a term from this taxonomy.
    */
-  const TAXONOMY_FOR_FILTER = 'staff_pick_audiences';
+  const TAXONOMY_FOR_FILTER = 'awesomebox_audiences';
 
   /**
    * Sets up the widgets name etc

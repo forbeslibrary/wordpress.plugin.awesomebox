@@ -5,7 +5,7 @@ Description: This template is used to display staff pick archive pages.
 */
 $post = get_post();
 
-$helper = new Staff_Picks_Helper();
+$helper = new Awesomebox_Helper();
 
 get_header();
 ?>
@@ -30,7 +30,7 @@ get_header();
         <?php while ( have_posts() ): ?>
           <?php
           the_post();
-          load_template( dirname( __FILE__ ) . '/content-staff_picks.php', False );
+          load_template( dirname( __FILE__ ) . '/content-awesomebox.php', False );
           ?>
         <?php endwhile; ?>
       <?php else: ?>
@@ -55,19 +55,19 @@ get_header();
         global $wp_query;
         $term = $wp_query->get_queried_object();
         $categories = $helper->get_limited_taxonomy_ids( array(
-          'taxonomy' => 'staff_pick_categories',
+          'taxonomy' => 'awesomebox_categories',
           'term' => array(
             'taxonomy' => $term->taxonomy,
             'term_id' => $term->term_id
           )
         ));
         wp_tag_cloud( array(
-          'taxonomy' => 'staff_pick_categories',
+          'taxonomy' => 'awesomebox_categories',
           'include' => implode(' ', $categories)
         ));
       } else {
         wp_tag_cloud( array(
-          'taxonomy' => 'staff_pick_categories',
+          'taxonomy' => 'awesomebox_categories',
         ));
       }
       ?>

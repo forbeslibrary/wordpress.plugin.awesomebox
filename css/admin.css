@@ -1,11 +1,11 @@
-.staff_pick_metadata-label {
+.awesomebox_metadata-label {
   display: block;
 }
-.staff_pick_metadata-input {
+.awesomebox_metadata-input {
   display: block;
   width: 100%;
 }
-#dashboard_right_now staff_picks-count a:before,
-#dashboard_right_now staff_picks-count span:before {
+#dashboard_right_now awesomebox-count a:before,
+#dashboard_right_now awesomebox-count span:before {
   content: "\f331";
 }

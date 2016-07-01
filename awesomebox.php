@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: Staff Picks
- * Plugin URI: https://github.com/forbeslibrary/wordpress.plugin.staff-picks
- * Description: Adds a custom post type 'Staff Picks'.
- * Version: 1.2.1
+ * Plugin Name: Awesomebox
+ * Plugin URI: https://github.com/forbeslibrary/wordpress.plugin.awesomebox
+ * Description: Adds a custom post type 'awesombox'.
+ * Version: 1.0
  * Author: Benjamin Kalish
  * Author URI: https://github.com/bkalish
  * License: GNU General Public License v2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-class Staff_Picks_Plugin {
+class Awesomebox_Plugin {
   public function __construct() {
     $data_file = file_get_contents(dirname( __FILE__ ) . '/post-type-data.json');
     $this->data = json_decode($data_file, true);
@@ -27,7 +27,7 @@ class Staff_Picks_Plugin {
    */
   public function load_dependencies() {
     require_once(dirname( __FILE__ ) . '/helpers.php');
-    $this->helper = new Staff_Picks_Helper();
+    $this->helper = new Awesomebox_Helper();
     require_once(dirname( __FILE__ ) . '/widget.php');
     if ( is_admin() ) {
       require_once(dirname( __FILE__ ) . '/admin.php');
@@ -184,7 +184,7 @@ class Staff_Picks_Plugin {
       $post = $wp_query->get_queried_object();
       $audiences = wp_get_post_terms(
         $post->ID,
-        'staff_pick_audiences',
+        'awesomebox_audiences',
         array('fields' => 'names')
       );
       $classes = array_merge($classes, array_map('strtolower', $audiences));
@@ -192,7 +192,7 @@ class Staff_Picks_Plugin {
 
     if (is_tax()) {
       $term = $wp_query->get_queried_object();
-      if ( $term->taxonomy == 'staff_pick_audiences' ) {
+      if ( $term->taxonomy == 'awesomebox_audiences' ) {
         $classes[] = strtolower( $term->name );
       }
     }
@@ -201,4 +201,4 @@ class Staff_Picks_Plugin {
 }
 
 // create a plugin instance to load the plugin
-new Staff_Picks_Plugin();
+new Awesomebox_Plugin();

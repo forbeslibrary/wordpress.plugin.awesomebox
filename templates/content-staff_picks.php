@@ -1,22 +1,22 @@
 <?php
 /*
-Template Name: Content Staff Picks
-Description: A partial tempalte used to display staff picks content.
+Template Name: Content Awesomebox
+Description: A partial tempalte used to display Awesomebox content.
 */
 $custom = get_post_custom($post->ID);
 $metadata = maybe_unserialize(
-  $custom["staff_pick_metadata"][0]
+  $custom["awesomebox_metadata"][0]
 );
 
 ob_start();?>
-<article id="post-<?php $post->ID ?>" class="staff_picks post hentry">
+<article id="post-<?php $post->ID ?>" class="awesomebox post hentry">
 <div class="entry-content">
   <h2>
     <?php the_title(); ?>
     <?php if (!empty($metadata['author'])): ?>
       by <?php echo $metadata['author']; ?>
-    <?php endif; ?>    <span class="staff_picks_format">
-      [<?php the_terms( $post->ID, 'staff_pick_formats') ?>]
+    <?php endif; ?>    <span class="awesomebox_format">
+      [<?php the_terms( $post->ID, 'awesomebox_formats') ?>]
     </span>
   </h2>
   <a href="<?php echo $metadata['catalog_url']; ?>"
@@ -34,8 +34,8 @@ ob_start();?>
   </a>
   <?php echo apply_filters('the_content', $post->post_content); ?>
 </div>
-<p class="staff_picks_byline"><?php the_terms( $post->ID, 'staff_pick_reviewers', 'Reviewed by ') ?></p>
-<p><?php the_terms( $post->ID, 'staff_pick_categories', 'Tagged: ') ?></p>
+<p class="awesomebox_byline"><?php the_terms( $post->ID, 'awesomebox_reviewers', 'Reviewed by ') ?></p>
+<p><?php the_terms( $post->ID, 'awesomebox_categories', 'Tagged: ') ?></p>
 <?php if (is_user_logged_in()): ?>
   <footer class="entry-utility"><span class="edit-link"><?php edit_post_link('Edit Staff Pick'); ?></span></footer>
 <?php endif; ?>

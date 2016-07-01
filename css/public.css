@@ -1,16 +1,16 @@
-.staff_picks {
+.awesomebox {
   clear: both;
 }
-.staff_picks_format {
+.awesomebox_format {
   font-size:smaller;
 }
-.staff_picks_format a {
+.awesomebox_format a {
   color: inherit;
 }
-.staff_picks_byline {
+.awesomebox_byline {
   font-style: italic;
 }
-.staff_picks_byline:before {
+.awesomebox_byline:before {
   content: " — ";
 }
 .book-jacket, #content .book-jacket-caption .book-jacket {
@@ -36,13 +36,13 @@
     margin: 0 auto 1em;
   }
 }
-.staff_picks_widget_image {
+.awesomebox_widget_image {
   border-radius: 1em;
   width: 48%;
   vertical-align: middle;
   margin: 1px 1% 1px 0;
 }
-.staff_picks_widget_link {
+.awesomebox_widget_link {
   text-align: center;
   font-weight: bold;
   font-size: larger;

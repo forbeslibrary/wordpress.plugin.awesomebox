@@ -1,8 +1,8 @@
 <?php
 /**
- * Helper functions for the Staff Picks plugin.
+ * Helper functions for the Awesomebox plugin.
  */
-class Staff_Picks_Helper {
+class Awesomebox_Helper {
   public function __construct() {
     $data_file = file_get_contents(dirname( __FILE__ ) . '/post-type-data.json');
     $this->data = json_decode($data_file, true);

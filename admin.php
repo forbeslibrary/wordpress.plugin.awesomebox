@@ -2,7 +2,7 @@
 /**
  * Admin interface for the plugin.
  */
-class Staff_Picks_Admin {
+class Awesomebox_Admin {
   public function __construct() {
     $data_file = file_get_contents(dirname( __FILE__ ) . '/post-type-data.json');
     $this->data = json_decode($data_file, true);
@@ -445,4 +445,4 @@ class Staff_Picks_Admin {
 }
 
 // create an instance to load the code
-new Staff_Picks_Admin();
+new Awesomebox_Admin();

@@ -1,30 +1,26 @@
-# Wordpress Plugin: Staff Picks
+# Wordpress Plugin: Awesomebox
 
-This Wordpress plugin adds a custom post type and taxonomies for library (or
-  bookstore) staff picks.
+This Wordpress plugin adds a custom post type and taxonomies for library
+ Awesomebox.
 
 This software is maintained by Forbes Library.
 
 ## Installation
-+ Unzip or clone the Staff Picks plugin into your Wordpress plugin directory (`wp-content/plugins`).
++ Unzip or clone the Awesomebox plugin into your Wordpress plugin directory (`wp-content/plugins`).
 + Log into your Wordpress installation and visit the Plugins screen.
-+ Find the Staff Picks plugin in the list and click **Activate Plugin** to activate it.
++ Find the Awesomebox plugin in the list and click **Activate Plugin** to activate it.
 
 ## Usage
 
-The plugin creates a custom post type, `staff_picks`, and custom taxonomies,
-`staff_pick_audiences`, `staff_pick_formats`, `staff_pick_categories`, and
-`staff_pick_reviewers`
+The plugin creates a custom post type, `awesomebox`, and custom taxonomies,
+`awesomebox_audiences` and `awesomebox_formats`.
 
-Users with the `manage_options` permission can create and edit new terms for any of the taxonomies. Editors without this permission may only create new
-`staff_pick_categories`, but may select existing terms from the other
-taxonomies.
+Users with the `manage_options` permission can create and edit new terms for any of the taxonomies.
 
-Each `staff_picks` post must have a cover image, author, catalog url, audience,
-and reviewer. If the post is missing any of these it will be saved as a draft
+Each `awesomebox` post must have a cover image, author, catalog url, audience. If the post is missing any of these it will be saved as a draft
 instead of being published.
 
 ## Settings
-Under the Staff Picks settings you can set a Catalog Search URL which will be
+Under the Awesomebox settings you can set a Catalog Search URL which will be
 used when fetching data by ISBN. Enter the URL for an ISBN search in your
 catalog, putting `%s` where the ISBN should go. For example `http://www.worldcat.org/isbn/%s`.

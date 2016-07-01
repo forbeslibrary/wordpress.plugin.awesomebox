@@ -330,7 +330,7 @@ class Awesomebox_Admin {
     $pt_info = get_post_type_object($this->data['post_type']);
     $num_posts = wp_count_posts($this->data['post_type']);
     $num = number_format_i18n($num_posts->publish);
-    $text = _n( $pt_info->labels->singular_name, $pt_info->labels->name, intval($num_posts->publish) ); // singular/plural text label
+    $text = _n( $pt_info->labels->singular_name, $pt_info->labels->name . ' Items', intval($num_posts->publish) ); // singular/plural text label
     echo '<li class="page-count ' . $pt_info->name . '-count"><a href="edit.php?post_type=' . $this->data['post_type'] . '">' . $num . ' ' . $text . '</li>';
   }
 

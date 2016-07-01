@@ -46,33 +46,6 @@ get_header();
       <?php endif; ?>
     </div>
   </div>
-  <div id="sidebar_wrap_right" class="right-1-col equal_height">
-    <div id="sidebar_primary" class="widget-area" role="complementary">
-      <h3 class="widget-title">Tags</h3>
-      <?php
-      $categories = '';
-      if (is_tax()) {
-        global $wp_query;
-        $term = $wp_query->get_queried_object();
-        $categories = $helper->get_limited_taxonomy_ids( array(
-          'taxonomy' => 'awesomebox_categories',
-          'term' => array(
-            'taxonomy' => $term->taxonomy,
-            'term_id' => $term->term_id
-          )
-        ));
-        wp_tag_cloud( array(
-          'taxonomy' => 'awesomebox_categories',
-          'include' => implode(' ', $categories)
-        ));
-      } else {
-        wp_tag_cloud( array(
-          'taxonomy' => 'awesomebox_categories',
-        ));
-      }
-      ?>
-    </div>
-  </div>
 </div>
 <?php
 get_footer();

@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Single Staff Pick
-Description: This tempalte is used when a single awesomebox is displayed on a page of its own.
+Description: This tempalte is used when a single awesomebox item is displayed on a page of its own.
 */
 $post = get_post();
 

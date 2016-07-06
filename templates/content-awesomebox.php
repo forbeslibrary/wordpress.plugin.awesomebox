@@ -11,24 +11,21 @@ $metadata = maybe_unserialize(
 ob_start();?>
 <article id="post-<?php $post->ID ?>" class="awesomebox post hentry">
 <div class="entry-content">
-  <h2>
-    <?php the_title(); ?>
-    <?php if (!empty($metadata['author'])): ?>
-      by <?php echo $metadata['author']; ?>
-    <?php endif; ?>
-  </h2>
   <a href="<?php echo $metadata['catalog_url']; ?>"
     class="wp-caption book-jacket-caption">
     <?php
+    $alt_text = the_title();
+    if (!empty($metadata['author'])) {
+      $alt_text = $alt_text . ' / ' . $metadata['author']);
+    }
     echo get_the_post_thumbnail(
       $post->ID,
       'medium',
       array(
-        'alt' => 'book-jacket',
+        'alt' => $alt_text,
         'class' => 'book-jacket'
       ))
       ?>
-      <p class="wp-caption-text">view/request in library catalog</p>
   </a>
   <?php echo apply_filters('the_content', $post->post_content); ?>
 </div>

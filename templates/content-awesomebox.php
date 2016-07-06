@@ -16,7 +16,7 @@ ob_start();?>
     <?php
     $alt_text = the_title();
     if (!empty($metadata['author'])) {
-      $alt_text = $alt_text . ' / ' . $metadata['author']);
+      $alt_text = $alt_text . ' / ' . $metadata['author'];
     }
     echo get_the_post_thumbnail(
       $post->ID,

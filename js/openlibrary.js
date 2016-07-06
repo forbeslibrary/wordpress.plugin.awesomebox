@@ -49,6 +49,7 @@ jQuery( document ).ready( function() {
               var key = 'ISBN:' + isbn;
               if (!(key in data)) {
                 alert('Could not find metadata for this ISBN');
+                showTaxonomyDialogs();
                 return;
               }
               var metadata = data['ISBN:' + isbn];
@@ -66,9 +67,11 @@ jQuery( document ).ready( function() {
               jQuery('.author-input').val(author);
               jQuery('.catalog_url-input').val(catalog_url);
 
-              if (metadata.cover.large) {
+              if (metadata.hasOwnProperty('cover') && metadata.cover.hasOwnProperty('large')) {
                 jQuery('#coverImageSuggestion').attr('src', metadata.cover.large);
                 jQuery('#coverImageDialog').dialog('open');
+              } else {
+                showTaxonomyDialogs();
               }
           });
           jQuery(this).dialog('close');

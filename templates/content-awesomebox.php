@@ -15,9 +15,7 @@ ob_start();?>
     <?php the_title(); ?>
     <?php if (!empty($metadata['author'])): ?>
       by <?php echo $metadata['author']; ?>
-    <?php endif; ?>    <span class="awesomebox_format">
-      [<?php the_terms( $post->ID, 'awesomebox_formats') ?>]
-    </span>
+    <?php endif; ?>
   </h2>
   <a href="<?php echo $metadata['catalog_url']; ?>"
     class="wp-caption book-jacket-caption">
@@ -34,9 +32,7 @@ ob_start();?>
   </a>
   <?php echo apply_filters('the_content', $post->post_content); ?>
 </div>
-<p class="awesomebox_byline"><?php the_terms( $post->ID, 'awesomebox_reviewers', 'Reviewed by ') ?></p>
-<p><?php the_terms( $post->ID, 'awesomebox_categories', 'Tagged: ') ?></p>
 <?php if (is_user_logged_in()): ?>
-  <footer class="entry-utility"><span class="edit-link"><?php edit_post_link('Edit Staff Pick'); ?></span></footer>
+  <footer class="entry-utility"><span class="edit-link"><?php edit_post_link('Edit Awesomebox Item'); ?></span></footer>
 <?php endif; ?>
 </article><?php

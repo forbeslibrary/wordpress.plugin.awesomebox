@@ -9,11 +9,14 @@ jQuery( document ).ready( function() {
     'width'          : 300,
     'open'           : function(event, ui) {
       jQuery('.ui-dialog').css('z-index',1001);
+    },
+    'close'          : function(event, ui) {
+      showTaxonomyDialogs();
     }
   });
   jQuery("#isbnDialog").dialog( {
     'dialogClass'   : 'wp-dialog',
-    'modal'         : true,
+    'modal'         : false,
     'autoOpen'      : true,
     'closeOnEscape' : true,
     'title'         : 'Fetch metadata by ISBN?',
@@ -33,6 +36,7 @@ jQuery( document ).ready( function() {
           'text': 'No thanks',
           'click': function() {
             jQuery(this).dialog('close');
+            showTaxonomyDialogs();
           }
         },
         {
@@ -74,7 +78,40 @@ jQuery( document ).ready( function() {
   }).css('z-index','1001');
 });
 
-/*
+/**
+ * Create and show taxonomy dialogs
+ */
+showTaxonomyDialogs = function() {
+  var taxonomyData = JSON.parse(jQuery('#taxonomy_data').val());
+  for (var i in taxonomyData) {
+    var taxonomy = taxonomyData[i];
+    jQuery("#" + taxonomy.taxonomy_name + "div").dialog( {
+      'dialogClass'    : 'wp-dialog',
+      'modal'          : false,
+      'autoOpen'       : false,
+      'closeOnEscape'  : true,
+      'title'          : taxonomy.taxonomy_data.label,
+      'width'          : 300,
+      'open'           : function(event, ui) {
+        jQuery('.ui-dialog').css('z-index',1000);
+      },
+      'close'          : function(event, ui) {
+        jQuery(this).dialog('destroy');
+        jQuery(this).show();
+      },
+      'buttons': [
+        {
+          'text': 'OK',
+          'click': function() {
+            jQuery(this).dialog('close');
+          }
+        }
+      ]
+    }).dialog('open');
+  }
+}
+
+/**
  * Title Caps
  *
  * Ported to JavaScript By John Resig - http://ejohn.org/ - 21 May 2008

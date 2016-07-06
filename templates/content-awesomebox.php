@@ -14,7 +14,7 @@ ob_start();?>
   <a href="<?php echo $metadata['catalog_url']; ?>"
     class="wp-caption book-jacket-caption">
     <?php
-    $alt_text = the_title();
+    $alt_text = get_the_title();
     if (!empty($metadata['author'])) {
       $alt_text = $alt_text . ' / ' . $metadata['author'];
     }

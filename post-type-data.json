@@ -48,20 +48,6 @@
         },
         "hierarchical": true
       }
-    },
-    {
-      "taxonomy_name": "awesomebox_formats",
-      "required": true,
-      "allow_multiple": true,
-      "taxonomy_data": {
-        "label": "Formats",
-        "labels": {
-          "singular_label": "Format",
-          "add_new_item": "Add New Format",
-          "edit_item": "Edit Format"
-        },
-        "hierarchical": true
-      }
     }
   ]
 }

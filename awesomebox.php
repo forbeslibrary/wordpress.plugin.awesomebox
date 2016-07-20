@@ -3,7 +3,7 @@
  * Plugin Name: Awesomebox
  * Plugin URI: https://github.com/forbeslibrary/wordpress.plugin.awesomebox
  * Description: Adds a custom post type 'awesombox'.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Benjamin Kalish
  * Author URI: https://github.com/bkalish
  * License: GNU General Public License v2

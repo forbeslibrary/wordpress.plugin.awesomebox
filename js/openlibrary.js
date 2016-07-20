@@ -112,7 +112,7 @@ showTaxonomyDialogs = function() {
       ]
     }).dialog('open');
   }
-}
+};
 
 /**
  * Title Caps

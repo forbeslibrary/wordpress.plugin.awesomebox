@@ -59,7 +59,10 @@ jQuery( document ).ready( function() {
                 title = title + ': ' + metadata.subtitle;
               }
 
-              var author = metadata.by_statement.replace(/by |[\.$]/g,'');
+              var author = '';
+              if (metadata.by_statement) {
+                author = metadata.by_statement.replace(/by |[\.$]/g,'');
+              }
 
               var catalog_url = jQuery('#catalog_url_template').val().replace('%s', isbn);
 

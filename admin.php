@@ -406,8 +406,8 @@ class Awesomebox_Admin {
       plugin_dir_url( __FILE__ ) . 'css/jquery-ui.structure.min.css'
     );
     wp_enqueue_script(
-      'open_library_data_fetcher',
-      plugin_dir_url( __FILE__ ) . 'js/openlibrary.js',
+      'awesomebox_admin',
+      plugin_dir_url( __FILE__ ) . 'js/admin.js',
       array('jquery-ui-dialog')
     );
   }

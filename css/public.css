@@ -25,3 +25,15 @@
   font-size: larger;
   padding: 0.5em;
 }
+
+#awesomebox-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.post-type-archive-awesomebox #container_wrap {
+  width: 100%;
+}

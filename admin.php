@@ -41,30 +41,42 @@ class Awesomebox_Admin {
       // settings api
 
       add_settings_section(
-        // ID
-        'default',
-        // Title
-        'Catalog Search URL',
-        // Callback
-        array($this, 'output_default_settings_section'),
-        // Page
-        $this->data['post_type'] . '_settings_page'
+        'default', // ID
+        'Catalog Search URL', // Title
+        array($this, 'output_default_settings_section'), // Callback
+        $this->data['post_type'] . '_settings_page' // Page
       );
 
       add_settings_field(
-        // ID
-        $this->data['post_type'] . '_settings_url_template',
-        // Title
-        'Catalog Search URL Template',
-        // Callback
-        array($this, 'output_url_template_form_field'),
-        // Page
-        $this->data['post_type'] . '_settings_page'
+        $this->data['post_type'] . '_settings_url_template', // ID
+        'Catalog Search URL Template', // Title
+        array($this, 'output_url_template_form_field'), // Callback
+        $this->data['post_type'] . '_settings_page' // Page
       );
 
       register_setting(
         $this->data['post_type'] . '_settings_page',
         $this->data['post_type'] . '_settings_url_template'
+      );
+
+      add_settings_section(
+        'archive', // ID
+        $this->data['post_type_data']['labels']['name'] . ' Archive Page', // Title
+        array($this, 'output_archive_settings_section'), // Callback
+        $this->data['post_type'] . '_settings_page' // Page
+      );
+
+      add_settings_field(
+        $this->data['post_type'] . '_settings_archive_text', // ID
+        'Intro Text', // Title
+        array($this, 'output_archive_text_field'), // Callback
+        $this->data['post_type'] . '_settings_page', // Page
+        'archive' // Section
+      );
+
+      register_setting(
+        $this->data['post_type'] . '_settings_page',
+        $this->data['post_type'] . '_settings_archive_text'
       );
     }
 
@@ -95,6 +107,15 @@ class Awesomebox_Admin {
     echo ''; // no explanatory text for this section
   }
 
+  /**
+   * Outputs HTML for the settings page archive page section.
+   *
+   * This is a callback function for the Wordpress Settings API
+   */
+  function output_archive_settings_section() {
+    echo ''; // no explanatory text for this section
+  }
+
  /**
    * Outputs HTML for the settings page.
    *
@@ -120,9 +141,20 @@ class Awesomebox_Admin {
      id="<?php echo $this->data['post_type'] . '_settings_url_template' ?>"
      type="text"
      style="width: 100%;"
-     value="<?php echo get_option( $this->data['post_type'] . '_settings_url_template' ); ?>"
+     value="<?php echo htmlspecialchars(get_option( $this->data['post_type'] . '_settings_url_template' )); ?>"
    >
    <p class="description">Enter the catalog URL query template. %s will be replaced by the ISBN.<p>
+   <?php
+  }
+
+  public function output_archive_text_field() {
+   ?>
+   <textarea
+     name="<?php echo $this->data['post_type'] . '_settings_archive_text' ?>"
+     id="<?php echo $this->data['post_type'] . '_settings_archive_text' ?>"
+     style="width: 100%;"
+   ><?php echo htmlspecialchars(get_option( $this->data['post_type'] . '_settings_archive_text' )); ?></textarea>
+   <p class="description">Enter text to be output on the archive page.<p>
    <?php
   }
 

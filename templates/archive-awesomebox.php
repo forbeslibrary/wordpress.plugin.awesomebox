@@ -26,6 +26,7 @@ get_header();
       <h1 class="entry-title">
         <?php echo $helper->get_title(); ?>
       </h1>
+      <?php echo get_option('awesomebox_settings_archive_text'); ?>
       <div id="awesomebox-content">
         <?php if ( have_posts() ): ?>
           <?php while ( have_posts() ): ?>
